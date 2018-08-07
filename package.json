@@ -1,0 +1,21 @@
+{
+  "name": "jive-simple-api",
+  "version": "0.1.0",
+  "description": "Simple API to interact with JIVE",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adipatl/jive-simple-api.git"
+  },
+  "author": "Adipat Larprattanakul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adipatl/jive-simple-api/issues"
+  },
+  "homepage": "https://github.com/adipatl/jive-simple-api#readme",
+  "dependencies": {
+    "command-line-args": "^5.0.2",
+    "console-log-level": "^1.4.0",
+    "request": "^2.87.0"
+  }
+}
