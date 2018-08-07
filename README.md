@@ -9,6 +9,10 @@ npm install jive-simple-api --save
 
 ## Methods
 - post(options, callback) = Post new content to JIVE API
+- update(docId, options, callback) = Update to existing content
+  - docId: Jive Document Id
+  - See more detail in [Jive Document](https://developers.jivesoftware.com/api/v3/cloud/rest/ContentService.html#updateContent(String,%20String,%20String,%20boolean,%20String,%20boolean))
+  
 
 ### Options Object
 #### options.clientId
