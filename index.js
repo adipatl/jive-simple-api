@@ -7,11 +7,23 @@ const optionDefinitions = [
 let logger = null;
 
 let initEnv = function() {
-    const commandLineArgs = require('command-line-args');
-    const options = commandLineArgs(optionDefinitions);
 
-    let lvl = options.verbose ? 'debug': 'info';
-    logger = require('console-log-level')({ level: lvl });
+    let verbose = false;
+    try {
+        const commandLineArgs = require('command-line-args');
+        const options = commandLineArgs(optionDefinitions);
+        verbose = options.verbose;
+    } catch (e) {
+        verbose = false;
+    }
+
+    let lvl = verbose ? 'debug': 'info';
+
+    try {
+        logger = require('console-log-level')({ level: lvl });
+    } catch (e) {
+        logger = console;
+    }
 };
 
 let validArguments = function(data, logger) {
