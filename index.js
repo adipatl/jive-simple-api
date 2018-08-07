@@ -90,7 +90,7 @@ module.exports = {
                         if (result.resources && result.resources.html && result.resources.html.ref) {
                             logger.debug('JIVE Document is created at ' + result.resources.html.ref);
                         }
-                        callback(result);
+                        callback(result.error, result);
                     }
                 }
             });
