@@ -118,17 +118,22 @@ let call_jive_api = function(data, token, method, url, callback) {
         logger.debug('response status message: ' + r.statusMessage);
         logger.debug('token response: ' + body);
         if (body) {
-            let result = JSON.parse(body);
-            if (result) {
-                if (result.error) {
-                    logger.error("\nJIVE Error Code: " + result.error.status + "\n" + "JIVE Error Message: " + result.error.message);
-                }
+            try {
+                let result = JSON.parse(body);
+                if (result) {
+                    if (result.error) {
+                        logger.error("\nJIVE Error Code: " + result.error.status + "\n" + "JIVE Error Message: " + result.error.message);
+                    }
 
-                if (result.resources && result.resources.html && result.resources.html.ref) {
-                    logger.debug('JIVE Document is updated at ' + result.resources.html.ref);
+                    if (result.resources && result.resources.html && result.resources.html.ref) {
+                        logger.debug('JIVE Document is updated at ' + result.resources.html.ref);
+                    }
+                    callback(result.error, result);
                 }
-                callback(result.error, result);
+            } catch (e) {
+                callback('unexpected error', null);
             }
+
         }
     });
 };
